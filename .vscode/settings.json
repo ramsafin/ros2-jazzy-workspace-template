@@ -3,7 +3,7 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.rulers": [
-    100,
+    88,
     120
   ],
   "editor.detectIndentation": false,
@@ -26,5 +26,13 @@
       "source.organizeImports": "always",
       "python.sortImports": "always"
     }
-  }
+  },
+  // ROS
+  "ros.distro": "jazzy",
+  "python.autoComplete.extraPaths": [
+    "/opt/ros/jazzy/lib/python3.12/site-packages"
+  ],
+  "python.analysis.extraPaths": [
+    "/opt/ros/jazzy/lib/python3.12/site-packages"
+  ]
 }

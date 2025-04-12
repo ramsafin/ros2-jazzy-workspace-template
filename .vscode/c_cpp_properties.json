@@ -12,8 +12,8 @@
         "ROS_DISTRO_JAZZY", // Explicitly target Jazzy (optional)
         "RCUTILS_ENABLE_FAULT_INJECTION" // Useful for debugging
       ],
-      "compilerPath": "/usr/bin/g++",
       "cppStandard": "c++17",
+      "compilerPath": "/usr/bin/g++",
       "intelliSenseMode": "linux-gcc-x64",
       "configurationProvider": "ms-vscode.cmake-tools",
       "compileCommands": "${workspaceFolder}/build/compile_commands.json",

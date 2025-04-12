@@ -5,13 +5,28 @@ exclude = [
     ".vscode",
     "build",
     "install",
+    "log",
+    "docs"
 ]
 
 line-length = 88
 indent-width = 4
+target-version = "py312"
 
 [format]
+line-ending = "auto"
 quote-style = "single"
 indent-style = "space"
 skip-magic-trailing-comma = false
-line-ending = "auto"
+
+[lint]
+select = [
+    "E",   # PyCodeStyle errors
+    "F",   # PyFlakes
+    "B",   # flake8-bugbear
+    "I",   # isort
+    "UP",  # pyupgrade
+    "C4",  # flake8-comprehensions
+    "G",   # flake8-logging-format
+    "RUF", # Ruff-specific rules
+]
