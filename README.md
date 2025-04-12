@@ -11,6 +11,7 @@ A ready-to-use template for ROS 2 Jazzy projects!
 - ROS 2 Jazzy ([install guide](https://docs.ros.org/en/jazzy/Installation.html))
 - Clang-format (optional)
 - Editorconfig (optional)
+- Docker (optional)
 
 ## Build
 
