@@ -1,7 +1,6 @@
 #  ROS 2 Jazzy Quick Start
 
 ![ROS 2 Jazzy](https://img.shields.io/badge/ROS%202-Jazzy%20Jalisco-brightgreen)
-
 ![C++20](https://img.shields.io/badge/C%2B%2B-20-blue)
 
 A ready-to-use template for ROS 2 Jazzy projects!
