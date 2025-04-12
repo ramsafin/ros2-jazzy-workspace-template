@@ -1,66 +1,66 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "colcon: build workspace (Debug)",
-            "type": "shell",
-            "command": "colcon build --symlink-install --event-handlers console_direct+ --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
-            "group": "build",
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "detail": "Build workspace (Debug)"
-        },
-        {
-            "label": "colcon: build workspace (Release)",
-            "type": "shell",
-            "command": "colcon build --symlink-install --event-handlers console_direct+ --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
-            "group": "build",
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "detail": "Build workspace (Release)"
-        },
-        {
-            "label": "colcon: build package (Debug)",
-            "type": "shell",
-            "command": "colcon build --symlink-install --event-handlers console_direct+ --packages-select ${input:package} --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
-            "group": "build",
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "detail": "Build package (Debug)"
-        },
-        {
-            "label": "colcon: build package (Release)",
-            "type": "shell",
-            "command": "colcon build --symlink-install --event-handlers console_direct+ --packages-select ${input:package} --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
-            "group": "build",
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "detail": "Build package (Release)"
-        },
-        {
-            "label": "colcon: clean workspace",
-            "type": "shell",
-            "command": "rm -rf build install log",
-            "group": "build",
-            "problemMatcher": [],
-            "detail": "Delete build/install/log directories",
-            "presentation": {
-                "reveal": "always",
-                "panel": "dedicated",
-                "clear": true
-            }
-        }
-    ],
-    "inputs": [
-        {
-            "id": "package",
-            "type": "promptString",
-            "description": "Package name",
-            "default": ""
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "colcon: build workspace",
+      "type": "shell",
+      "command": "colcon build --symlink-install --event-handlers console_cohesion+ --cmake-args -DCMAKE_BUILD_TYPE=${input:buildType} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+      "group": "build",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Build workspace"
+    },
+    {
+      "label": "colcon: build package",
+      "type": "shell",
+      "command": "colcon build --symlink-install --event-handlers console_direct+ --packages-select ${input:packageName} --cmake-args -DCMAKE_BUILD_TYPE=${input:buildType} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+      "group": "build",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Build package"
+    },
+    {
+      "label": "colcon: clean",
+      "type": "shell",
+      "command": "rm -rfv build/ install/ log/",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Clean workspace",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "colcon: test",
+      "type": "shell",
+      "command": "colcon test --event-handlers console_cohesion+",
+      "group": "test",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Run all tests"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "packageName",
+      "type": "promptString",
+      "description": "Enter package name (leave empty for all)",
+      "default": ""
+    },
+    {
+      "id": "buildType",
+      "type": "pickString",
+      "description": "Build type",
+      "options": [
+        "Debug",
+        "RelWithDebInfo"
+      ],
+      "default": "Debug"
+    }
+  ]
 }
