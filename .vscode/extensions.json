@@ -9,7 +9,7 @@
     "ms-python.black-formatter", // Python formatting (or "ms-python.autopep8")
     "editorconfig.editorconfig", // Cross-editor consistency
     // Utilities
-    "twxs.cmake", // CMake support
+    "ms-vscode.cmake-tools",
     "eamodio.gitlens" // Git history (optional)
   ]
 }
