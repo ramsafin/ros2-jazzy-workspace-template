@@ -1,20 +1,46 @@
 BasedOnStyle: Google
 Language: Cpp
 Standard: c++17
-AccessModifierOffset: -1
-AlignAfterOpenBracket: DontAlign
-AllowShortIfStatementsOnASingleLine: WithoutElse
-BreakBeforeBraces: Custom
+AccessModifierOffset: -2
+AlignAfterOpenBracket: AlwaysBreak
+AllowShortFunctionsOnASingleLine: InlineOnly
 BraceWrapping:
-  AfterClass: false
-  AfterFunction: false
-  AfterNamespace: false
-  SplitEmptyRecord: true
-BreakConstructorInitializers: BeforeColon
-ColumnLimit: 120
-IndentWidth: 2
+  AfterClass: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+BreakBeforeBraces: Custom
+ColumnLimit: 100
+ConstructorInitializerIndentWidth: 0
+ContinuationIndentWidth: 2
+DerivePointerAlignment: false
 PointerAlignment: Right
-SortIncludes: Never
-SpaceBeforeCtorInitializerColon: true
-SpaceBeforeParens: ControlStatements
-UseTab: Never
+ReflowComments: true
+IncludeCategories:
+  # C++ system headers
+  - Regex: <[a-z_]*>
+    Priority: 6
+    CaseSensitive: true
+  # C system headers
+  - Regex: <.*\.h>
+    Priority: 5
+    CaseSensitive: true
+  # Boost headers
+  - Regex: boost/.*
+    Priority: 4
+    CaseSensitive: true
+  # Message headers
+  - Regex: .*_msgs/.*
+    Priority: 3
+    CaseSensitive: true
+  - Regex: .*_srvs/.*
+    Priority: 3
+    CaseSensitive: true
+  # Other Package headers
+  - Regex: <.*>
+    Priority: 2
+    CaseSensitive: true
+  # Local package headers
+  - Regex: '".*"'
+    Priority: 1
+    CaseSensitive: true
