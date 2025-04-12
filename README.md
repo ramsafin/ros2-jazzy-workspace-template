@@ -8,7 +8,7 @@ A ready-to-use template for ROS 2 Jazzy projects!
 ## Prerequisites
 
 - Ubuntu 24.04
-- ROS 2 Jazzy ([intall guide](https://docs.ros.org/en/jazzy/Installation.html))
+- ROS 2 Jazzy ([install guide](https://docs.ros.org/en/jazzy/Installation.html))
 - Clang-format (optional)
 - Editorconfig (optional)
 
