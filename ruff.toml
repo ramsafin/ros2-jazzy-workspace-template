@@ -1,0 +1,17 @@
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "build",
+    "install",
+]
+
+line-length = 88
+indent-width = 4
+
+[format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

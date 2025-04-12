@@ -17,5 +17,14 @@
   "C_Cpp.formatting": "clangFormat",
   "C_Cpp.intelliSenseEngine": "default",
   "C_Cpp.errorSquiggles": "enabled",
-  "cmake.buildDirectory": "${workspaceFolder}/build"
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  // Python
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always",
+      "python.sortImports": "always"
+    }
+  }
 }

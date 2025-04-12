@@ -5,8 +5,8 @@
     "ms-vscode.cpptools", // C++ IntelliSense
     "ms-python.python", // Python support
     // Formatters/Linters
+    "charliermarsh.ruff",
     "xaver.clang-format", // C++ formatting
-    "ms-python.black-formatter", // Python formatting (or "ms-python.autopep8")
     "editorconfig.editorconfig", // Cross-editor consistency
     // Utilities
     "ms-vscode.cmake-tools",
