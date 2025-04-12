@@ -32,6 +32,5 @@
   ],
   "python.analysis.extraPaths": [
     "/opt/ros/${env:ROS_DISTRO}/lib/python3.12/site-packages"
-  ],
-  "cmake.sourceDirectory": "/home/ramsafin/ros2-jazzy-workspace-template/src/cpp_pubsub"
+  ]
 }
