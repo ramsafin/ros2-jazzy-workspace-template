@@ -23,3 +23,15 @@ git clone https://github.com/ramsafin/ros2-jazzy-workspace-template
 cd ros2-jazzy-workspace-template
 colcon build --symlink-install
 ```
+
+## Features
+
+- [ ] C++ formatting (clang-format) and linter (cppcheck / clang-tidy)
+- [ ] Python formatting and linter (ruff, ament_lint)
+- [ ] CI/CD workflows (build and test: formatting + linter)
+- [ ] VS Code:
+  - [ ] formatting and linter (ruff, clang-format + clang-tidy / cppcheck)
+  - [ ] ROS 2 headers and source files (lookup)
+  - [ ] build and test tasks
+  - [ ] debugging
+  - [ ] dev containers (Docker)
