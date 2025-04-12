@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "name": "ROS 2",
+      "includePath": [
+        "${workspaceFolder}/install/include/**",
+        "/opt/ros/${env:ROS_DISTRO}/include/**",
+        "/usr/include/**",
+        "${env:AMENT_PREFIX_PATH}/include/**"
+      ],
+      "defines": [
+        "ROS_DISTRO_JAZZY", // Explicitly target Jazzy (optional)
+        "RCUTILS_ENABLE_FAULT_INJECTION" // Useful for debugging
+      ],
+      "compilerPath": "/usr/bin/g++",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "linux-gcc-x64",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+      "browse": {
+        "path": [
+          "${workspaceFolder}/src",
+          "/opt/ros/${env:ROS_DISTRO}/include",
+          "${env:AMENT_PREFIX_PATH}/include"
+        ],
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+}
