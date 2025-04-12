@@ -7,6 +7,12 @@
     100
   ],
   "editor.detectIndentation": false,
+  "files.exclude": {
+    "**/.git": true,
+    "**/build": true,
+    "**/install": true,
+    "**/log": true
+  },
   // C++
   "[cpp]": {
     "editor.defaultFormatter": "xaver.clang-format",
@@ -20,12 +26,7 @@
   "cmake.buildDirectory": "${workspaceFolder}/build",
   // Python
   "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "always",
-      "python.sortImports": "always"
-    }
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "python.autoComplete.extraPaths": [
     "/opt/ros/${env:ROS_DISTRO}/lib/python3.12/site-packages"
