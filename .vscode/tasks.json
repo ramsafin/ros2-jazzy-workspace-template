@@ -37,12 +37,20 @@
     {
       "label": "colcon: test",
       "type": "shell",
-      "command": "colcon test --event-handlers console_cohesion+",
+      "command": "colcon test --event-handlers console_cohesion+ && colcon test-result --verbose",
       "group": "test",
       "problemMatcher": [
         "$gcc"
       ],
       "detail": "Run all tests"
+    },
+    {
+      "label": "clang-tidy",
+      "type": "shell",
+      "command": "run-clang-tidy -p build",
+      "problemMatcher": [],
+      "group": "build",
+      "detail": "Run clang-tidy"
     }
   ],
   "inputs": [
