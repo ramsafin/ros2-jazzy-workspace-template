@@ -1,15 +1,13 @@
 {
   "recommendations": [
-    // Core ROS 2
-    "ms-iot.vscode-ros", // ROS 2 tooling
-    "ms-vscode.cpptools", // C++ IntelliSense
-    "ms-python.python", // Python support
-    // Formatters/Linters
+    "ms-iot.vscode-ros",
+    "ms-vscode.cpptools",
+    "ms-python.python",
     "charliermarsh.ruff",
-    "xaver.clang-format", // C++ formatting
-    "editorconfig.editorconfig", // Cross-editor consistency
-    // Utilities
+    "xaver.clang-format",
+    "editorconfig.editorconfig",
     "ms-vscode.cmake-tools",
-    "eamodio.gitlens" // Git history (optional)
+    "eamodio.gitlens",
+    "ms-vscode-remote.vscode-remote-extensionpack"
   ]
 }

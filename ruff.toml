@@ -1,12 +1,12 @@
 exclude = [
-    ".git",
-    ".ruff_cache",
-    ".venv",
-    ".vscode",
-    "build",
-    "install",
-    "log",
-    "docs"
+  ".git",
+  ".ruff_cache",
+  ".venv",
+  ".vscode",
+  "build",
+  "install",
+  "log",
+  "docs",
 ]
 
 line-length = 88
@@ -21,12 +21,12 @@ skip-magic-trailing-comma = false
 
 [lint]
 select = [
-    "E",   # PyCodeStyle errors
-    "F",   # PyFlakes
-    "B",   # flake8-bugbear
-    "I",   # isort
-    "UP",  # pyupgrade
-    "C4",  # flake8-comprehensions
-    "G",   # flake8-logging-format
-    "RUF", # Ruff-specific rules
+  "E",   # PyCodeStyle errors
+  "F",   # PyFlakes
+  "B",   # flake8-bugbear
+  "I",   # isort
+  "UP",  # pyupgrade
+  "C4",  # flake8-comprehensions
+  "G",   # flake8-logging-format
+  "RUF", # Ruff-specific rules
 ]

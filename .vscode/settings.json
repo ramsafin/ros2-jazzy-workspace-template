@@ -15,7 +15,8 @@
   },
   // C++
   "[cpp]": {
-    "editor.defaultFormatter": "xaver.clang-format"
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.formatOnSave": true
   },
   "C_Cpp.default.cStandard": "c17",
   "C_Cpp.default.cppStandard": "c++20",
@@ -29,7 +30,8 @@
   "clang-format.executable": "/usr/bin/clang-format",
   // Python
   "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff"
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true
   },
   "python.autoComplete.extraPaths": [
     "/opt/ros/${env:ROS_DISTRO}/lib/python3.12/site-packages",
