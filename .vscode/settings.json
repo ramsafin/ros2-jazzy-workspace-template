@@ -17,7 +17,6 @@
   "[cpp]": {
     "editor.defaultFormatter": "xaver.clang-format"
   },
-  "clang-format.style": "file",
   "C_Cpp.default.cStandard": "c17",
   "C_Cpp.default.cppStandard": "c++20",
   "C_Cpp.errorSquiggles": "enabled",
@@ -25,14 +24,19 @@
   "C_Cpp.intelliSenseEngine": "default",
   "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
   "cmake.buildDirectory": "${workspaceFolder}/build",
+  // Clang
+  "clang-format.style": "file",
+  "clang-format.executable": "/usr/bin/clang-format",
   // Python
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "python.autoComplete.extraPaths": [
-    "/opt/ros/${env:ROS_DISTRO}/lib/python3.12/site-packages"
+    "/opt/ros/${env:ROS_DISTRO}/lib/python3.12/site-packages",
+    "${workspaceFolder}/src"
   ],
   "python.analysis.extraPaths": [
-    "/opt/ros/${env:ROS_DISTRO}/lib/python3.12/site-packages"
+    "/opt/ros/${env:ROS_DISTRO}/lib/python3.12/site-packages",
+    "${workspaceFolder}/src"
   ]
 }
