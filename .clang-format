@@ -17,6 +17,6 @@ ConstructorInitializerIndentWidth: 0
 PointerAlignment: Left
 DerivePointerAlignment: false
 ReflowComments: true
-SpacesBeforeTrailingComments: 1
+SpacesBeforeTrailingComments: 2
 SortIncludes: true
 IncludeBlocks: Preserve
