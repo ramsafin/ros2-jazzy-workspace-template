@@ -24,5 +24,3 @@ struct rclcpp::TypeAdapter<std::string, std_msgs::msg::String>
     dst = std::format("std_msgs::msg::String: {}", src.data);
   }
 };
-
-using Adapter = rclcpp::TypeAdapter<std::string, std_msgs::msg::String>;

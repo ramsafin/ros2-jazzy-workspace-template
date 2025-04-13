@@ -30,6 +30,9 @@ target_include_directories(publisher_adapter PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
 
+# export include for downstream packages
+ament_export_include_directories(include)
+
 # install targets
 install(TARGETS
   publisher_lambda

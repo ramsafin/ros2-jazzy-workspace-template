@@ -1,19 +1,17 @@
 #include <chrono>  // seconds
 #include <format>
 #include <memory>  // make_shared
-#include <string>  // to_string
+#include <string>
 
 #include "rclcpp/rclcpp.hpp"  // init, spin, shutdown, Node, TimerBase, Publisher
 
-#include "cpp_publisher/type_adapter.hpp"  // TypeAdapter (specialization)
+#include "cpp_publisher/type_adapter.hpp"  // Adapter
 
 static constexpr size_t DEFAULT_QOS_HIST_DEPTH = 10;
 
 class AdapterPublisher : public rclcpp::Node
 {
 public:
-  using Adapter = rclcpp::TypeAdapter<std::string, std_msgs::msg::String>;
-
   explicit AdapterPublisher(size_t pub_rate_secs) : Node("cpp_adapter_publisher")
   {
     publisher_ = this->create_publisher<Adapter>("topic", DEFAULT_QOS_HIST_DEPTH);

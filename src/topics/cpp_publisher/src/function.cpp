@@ -2,7 +2,6 @@
 #include <format>
 #include <functional>  // bind
 #include <memory>      // make_shared
-#include <string>      // to_string
 
 #include "rclcpp/rclcpp.hpp"        // init, spin, shutdown, Node, TimerBase, Publisher
 #include "std_msgs/msg/string.hpp"  // String
