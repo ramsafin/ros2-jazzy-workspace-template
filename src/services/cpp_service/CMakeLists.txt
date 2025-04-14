@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(cpp_service_server)
+project(cpp_service)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 20)
@@ -20,9 +20,13 @@ find_package(std_srvs REQUIRED)
 add_executable(service_server src/server.cpp)
 ament_target_dependencies(service_server rclcpp std_srvs)
 
+add_executable(service_client src/client.cpp)
+ament_target_dependencies(service_client rclcpp std_srvs)
+
 # install targets
 install(TARGETS
   service_server
+  service_client
   DESTINATION lib/${PROJECT_NAME}
 )
 
