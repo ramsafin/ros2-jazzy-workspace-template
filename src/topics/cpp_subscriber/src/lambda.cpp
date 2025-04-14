@@ -10,16 +10,16 @@ class LambdaSubscriber : public rclcpp::Node
 public:
   explicit LambdaSubscriber() : Node("cpp_lambda_subscriber")
   {
-    auto callback = [this](std_msgs::msg::String::SharedPtr msg) -> void {
-      RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
+    auto callback = [this](std_msgs::msg::String::SharedPtr msg) {
+      RCLCPP_INFO(get_logger(), "Got message: '%s'", msg->data.c_str());
     };
 
-    subscription_ =
-      this->create_subscription<std_msgs::msg::String>("topic", DEFAULT_QOS_HIST_DEPTH, callback);
+    sub_ = create_subscription<std_msgs::msg::String>("topic", DEFAULT_QOS_HIST_DEPTH, callback);
+    RCLCPP_INFO(get_logger(), "Created subscriber");
   }
 
 private:
-  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_;
 };
 
 auto main(int argc, char* argv[]) -> int

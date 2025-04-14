@@ -5,26 +5,28 @@
 #include "rclcpp/rclcpp.hpp"        // init, spin, shutdown, Node, TimerBase, Publisher
 #include "std_msgs/msg/string.hpp"  // String
 
+using namespace std::chrono_literals;
+
 static constexpr size_t DEFAULT_QOS_HIST_DEPTH = 10;
+static constexpr std::chrono::seconds DEFAULT_PUBLISH_RATE = 2s;
 
 class LambdaPublisher : public rclcpp::Node
 {
 public:
-  explicit LambdaPublisher(size_t pub_rate_secs) : Node("cpp_lambda_publisher")
+  explicit LambdaPublisher() : Node("cpp_lambda_publisher")
   {
-    publisher_ = this->create_publisher<std_msgs::msg::String>("topic", DEFAULT_QOS_HIST_DEPTH);
+    publisher_ = create_publisher<std_msgs::msg::String>("topic", DEFAULT_QOS_HIST_DEPTH);
 
-    // lambda callback function that publishes new messages to the specified topic
-    auto callback = [this]() -> void {
+    auto callback = [this]() {
       auto message = std_msgs::msg::String();
       message.data = std::format("Data: {}", msg_counter_++);
 
-      RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
       publisher_->publish(message);
+      RCLCPP_INFO(get_logger(), "Published: '%s'", message.data.c_str());
     };
 
-    // timer that periocially ivokes the callback function
-    timer_ = this->create_wall_timer(std::chrono::seconds(pub_rate_secs), callback);
+    timer_ = create_wall_timer(DEFAULT_PUBLISH_RATE, callback);
+    RCLCPP_INFO(get_logger(), "Publishing messages every %ld secs", DEFAULT_PUBLISH_RATE.count());
   }
 
 private:
@@ -36,10 +38,7 @@ private:
 auto main(int argc, char* argv[]) -> int
 {
   rclcpp::init(argc, argv);
-
-  const size_t publish_rate_secs = 2;
-  rclcpp::spin(std::make_shared<LambdaPublisher>(publish_rate_secs));
-
+  rclcpp::spin(std::make_shared<LambdaPublisher>());
   rclcpp::shutdown();
   return 0;
 }

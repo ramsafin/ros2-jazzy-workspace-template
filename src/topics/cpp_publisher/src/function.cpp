@@ -6,17 +6,22 @@
 #include "rclcpp/rclcpp.hpp"        // init, spin, shutdown, Node, TimerBase, Publisher
 #include "std_msgs/msg/string.hpp"  // String
 
+using namespace std::chrono_literals;
+
 static constexpr size_t DEFAULT_QOS_HIST_DEPTH = 10;
+static constexpr std::chrono::seconds DEFAULT_PUBLISH_RATE = 2s;
 
 class FunctionalPublisher : public rclcpp::Node
 {
 public:
-  explicit FunctionalPublisher(size_t pub_rate_secs) : Node("cpp_functional_publisher")
+  explicit FunctionalPublisher() : Node("cpp_functional_publisher")
   {
-    publisher_ = this->create_publisher<std_msgs::msg::String>("topic", DEFAULT_QOS_HIST_DEPTH);
+    publisher_ = create_publisher<std_msgs::msg::String>("topic", DEFAULT_QOS_HIST_DEPTH);
 
-    const auto period = std::chrono::seconds(pub_rate_secs);
-    timer_ = this->create_wall_timer(period, std::bind(&FunctionalPublisher::timerCallback, this));
+    auto callback = std::bind(&FunctionalPublisher::timerCallback, this);
+    timer_ = create_wall_timer(DEFAULT_PUBLISH_RATE, callback);
+
+    RCLCPP_INFO(get_logger(), "Publishing messages every %ld secs", DEFAULT_PUBLISH_RATE.count());
   }
 
 private:
@@ -25,8 +30,9 @@ private:
     auto message = std_msgs::msg::String();
     message.data = std::format("Data: {}", msg_counter_++);
 
-    RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
     publisher_->publish(message);
+
+    RCLCPP_INFO(get_logger(), "Published: '%s'", message.data.c_str());
   }
 
   size_t msg_counter_{0};
@@ -37,10 +43,7 @@ private:
 auto main(int argc, char* argv[]) -> int
 {
   rclcpp::init(argc, argv);
-
-  const size_t publish_rate_secs = 2;
-  rclcpp::spin(std::make_shared<FunctionalPublisher>(publish_rate_secs));
-
+  rclcpp::spin(std::make_shared<FunctionalPublisher>());
   rclcpp::shutdown();
   return 0;
 }
